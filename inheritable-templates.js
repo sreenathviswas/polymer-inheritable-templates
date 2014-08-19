@@ -47,7 +47,8 @@ Polymer( 'inheritable-templates', {
 
 		this.externalTemplates[ tplId ] = tplNode.ref_.cloneNode( true );
 		this.externalTemplates[ tplId ].setAttribute( 'id', 'external-' + tplId );
-		this.parentShadow.appendChild( this.externalTemplates[ tplId ] );
+
+		this.parent.$[ tplId ].parentNode.insertBefore( this.externalTemplates[ tplId ], this.parent.$[ tplId ] );
 
 		this.useExternal( tplId );
 	}
